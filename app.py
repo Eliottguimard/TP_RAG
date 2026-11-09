@@ -23,7 +23,8 @@ from main import get_retriever, rag_answer
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="Chatbot RAG Wikipédia", page_icon="🤖")
-st.title("🤖 Chatbot RAG Wikipédia")
+# Exemple de modification :
+st.title("🤖 Chatbot RAG Wikipédia (Version déployée)")
 
 # --- Initialisation du retriever une seule fois grâce au cache Streamlit ---
 @st.cache_resource
