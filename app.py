@@ -1,6 +1,26 @@
 import streamlit as st
 from main import get_retriever, rag_answer
 
+import os
+import streamlit as st
+from dotenv import load_dotenv
+
+# 1. Charger d'abord les variables du fichier .env local (s'il existe)
+load_dotenv()
+
+# 2. Récupérer les clés depuis st.secrets si l'application est sur Streamlit Cloud
+try:
+    if "OPENAI_API_KEY" in st.secrets:
+        os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+    if "MISTRAL_API_KEY" in st.secrets:
+        os.environ["MISTRAL_API_KEY"] = st.secrets["MISTRAL_API_KEY"]
+except Exception:
+    # En local, si secrets.toml n'existe pas, st.secrets lève une exception qu'on ignore
+    pass
+
+# Import de main.py APRÈS avoir configuré os.environ
+from main import get_retriever, rag_answer
+
 # Configuration de la page Streamlit
 st.set_page_config(page_title="Chatbot RAG Wikipédia", page_icon="🤖")
 st.title("🤖 Chatbot RAG Wikipédia")
