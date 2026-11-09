@@ -1,0 +1,12 @@
+# Variable d'environnement et clés API
+.env
+
+# Base de données vectorielle locale
+chroma_db_*/
+
+# Environnement virtuel Python
+.venv/
+
+# Cache de compilation Python
+__pycache__/
+*.pyc
